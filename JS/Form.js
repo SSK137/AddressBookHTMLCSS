@@ -48,3 +48,12 @@ function AddressValidation() {
             addresserroe.textContent = "Address Is Incorrect";
     })
 }
+//save method
+const save = () => {
+    alert("Save Button Fired");
+}
+
+//reset method
+const resetForm = () => {
+    alert("Reset Button Fired");
+}
