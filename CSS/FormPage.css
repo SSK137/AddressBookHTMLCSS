@@ -1,11 +1,14 @@
 body{
     margin: 0;
     height: 100%;
+    background-color: rgb(247, 242, 242);
+    opacity: 1;
 }
 
 .header{
+    display: flex;
     background-color: white;
-    padding: 20px;
+    padding: 15px;
 }
 
 .header-content{
@@ -56,14 +59,15 @@ body{
     color: #ffffff;
     width: 100%;
     opacity: 1;
-    background-color: #4ea0e4;
+    background-color: #008CFF ;
     text-align: center;
     height: 60px;
     border-radius: 7px;
+    padding-top: 20px;
 }
 .form-header-icon{
     float: right;
-    margin-top: 2%;
+    margin-top: 5px;
     margin-right: 2%;
     border-radius: 15px;
 }
@@ -75,19 +79,18 @@ body{
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
-    border: 0px solid green;
     margin: 0px auto;
     width: 100%;
 }
+.label{
+    min-width: 140px;
+}
 
-.label-city,
-.label-state,
-.label-zip {
+.label-city,.label-state,.label-zip {
     width: calc(33% - 20px);
 }
 
-.label-city,
-.label-state {
+.label-city,.label-state {
     margin-right: 20px;
 }
 
@@ -98,9 +101,7 @@ body{
     font-family: Roboto;
 }
 
-.city,
-.state,
-.zip {
+.city,.state,.zip {
     font-size: 16px;
     color: black;
     opacity: 1;
@@ -117,9 +118,9 @@ body{
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    resize: vertical;
     margin-bottom: 30px;
     font-family: Roboto;
+    resize: horizontal;
 }
 
 .profie-radio-content {
@@ -151,4 +152,11 @@ select {
     justify-content: space-between;
     margin-right: 40px;
     width: 100%;
+}
+error-output {
+    font-size: 12px;
+    font-style: italic;
+    color: red;
+    width: 10%;
+    float: right;
 }
