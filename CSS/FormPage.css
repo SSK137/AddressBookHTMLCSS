@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+    height: 100%;
+}
+
+.header{
+    background-color: white;
+    padding: 20px;
+}
+
+.header-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 0.1px solid rgb(238, 250, 238);
+}
+.logo-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+}
+.Address-text{
+    color: blue;
+    font:bold 18px/23px Montserrat;
+    font-family: "Montserrat", sans-serif;
+}
+.Book-text{
+    color: black;
+    font:bold 18px/23px Montserrat;
+    font-family: "Montserrat", sans-serif;
+}
