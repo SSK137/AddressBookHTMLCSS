@@ -49,8 +49,11 @@ function AddressValidation() {
     })
 }
 //save method
-const save = () => {
+const save = (event) => {
     alert("Save Button Fired");
+    const data = new FormData(event.target);
+    const formJSON = Object.fromEntries(data.entries());
+    alert(JSON.stringify(formJSON));
 }
 
 //reset method
