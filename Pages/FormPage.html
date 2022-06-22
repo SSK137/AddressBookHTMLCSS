@@ -33,19 +33,18 @@
 
             <label class="label text" for="address">Address</label>
             <error-output class="address-error"></error-output>
-            <textarea id="address" class="input" name="address" placeholder="Enter your address" style="height: 100px; "></textarea>
+            <textarea id="address" class="input" name="address" placeholder="Enter your address" style="height: 100px; " required></textarea>
             
             <div class="row-content">
                 <div class="label-city">
                     <label class="city" for="city">City</label><br>
                     <select id="city" name="city">
                         <option value="0">Select City</option>
+                        <option value="Pune">Ahmednagar</option>
                         <option value="Pune">Pune</option>
                         <option value="Mumbai">Mumbai</option>
                         <option value="Nashik">Nashik</option>
                         <option value="Kolkata">Kolkata</option>
-                        <option value="Banglore">Banglore</option>
-                        <option value="Jaipur">Jaipur</option>
                         <option value="Solapur">Solapur</option>
 
                     </select>
@@ -54,13 +53,12 @@
                     <label class="state" for="state">State</label><br>
                     <select id="state" name="state">
                         <option value="">Select State</option>
-                        <option value="Haryana">Haryana</option>
-                        <option value="Punjab">Punjab</option>
                         <option value="Maharashtra">Maharashtra</option>
-                        <option value="West Bengal">West Bengal</option>
+                        <option value="Andhra-Pradesh">Andhra-Pradesh</option>
                         <option value="Karnataka">Karnataka</option>
                         <option value="Rajasthan">Rajasthan</option>
                         <option value="Jammu Kashmir">Jammu Kashmir</option>
+                        <option value="Punjab">Punjab</option>
                     </select>
                 </div>
                 <div class="label-zip">
@@ -68,6 +66,12 @@
                     <error-output class="zip-error"></error-output>
                     <input class="input" type="zipcode" id="zipcode" name="zipcode" placeholder="Zip-Code"></input>
                     
+                </div>
+            </div>
+            <div class="buttonParent">
+                <div class="submit-reset">
+                    <button type="submit" class="button submitButton" id="submitButton">Add</button>
+                    <button type="reset" class="resetButton button" id="resetButton">Reset</button>
                 </div>
             </div>
         </div>
