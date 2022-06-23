@@ -56,8 +56,6 @@ const save = (event) => {
     // alert(JSON.stringify(formJSON));
     let addressBookData=createAddressBook();
     alert(addressBookData.toString());
-    
-
 }
 
 const createNewId = () => {
