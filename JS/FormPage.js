@@ -48,18 +48,6 @@ function AddressValidation() {
             addresserroe.textContent = "Address Is Incorrect";
     })
 }
-
-// Save Data to Local Storage
-function createAndUpdateStorage(addressBookData) {
-    let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
-    if (addressBookList != undefined) {
-        addressBookList.push(addressBookData);
-    } else {
-        addressBookList = [addressBookData]
-    }
-    alert(addressBookList.toString());
-    localStorage.setItem("AddressBookList", JSON.stringify(addressBookList))
-}
 //save method
 const save = (event) => {
     alert("Save Button Fired");
@@ -67,8 +55,7 @@ const save = (event) => {
     // const formJSON = Object.fromEntries(data.entries());
     // alert(JSON.stringify(formJSON));
     let addressBookData=createAddressBook();
-    createAndUpdateStorage(addressBookData);
-    //alert(addressBookData.toString());
+    alert(addressBookData.toString());
     
 
 }
@@ -104,5 +91,16 @@ const getInputValueById = (id) => {
 
 //reset method
 const resetForm = () => {
+    setValue('#name','');
+    setValue('#phone','');
+    setValue('#address','');
+    setValue('#city','');
+    setValue('#state','');
+    setValue('#zipcode','');
     alert("Reset Button Fired");
+}
+
+const setValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.value = value;
 }
