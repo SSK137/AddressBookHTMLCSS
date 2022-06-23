@@ -48,6 +48,18 @@ function AddressValidation() {
             addresserroe.textContent = "Address Is Incorrect";
     })
 }
+
+// Save Data to Local Storage
+function createAndUpdateStorage(addressBookData) {
+    let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
+    if (addressBookList != undefined) {
+        addressBookList.push(addressBookData);
+    } else {
+        addressBookList = [addressBookData]
+    }
+    alert(addressBookList.toString());
+    localStorage.setItem("AddressBookList", JSON.stringify(addressBookList))
+}
 //save method
 const save = (event) => {
     alert("Save Button Fired");
@@ -55,7 +67,8 @@ const save = (event) => {
     // const formJSON = Object.fromEntries(data.entries());
     // alert(JSON.stringify(formJSON));
     let addressBookData=createAddressBook();
-    alert(addressBookData.toString());
+    createAndUpdateStorage(addressBookData);
+    //alert(addressBookData.toString());
     
 
 }
