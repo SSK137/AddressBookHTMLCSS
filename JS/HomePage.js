@@ -24,14 +24,23 @@ const createInnerHtml = () => {
                 <td>${addressBookData._state}</td>
                 <td>${addressBookData._zipCode}</td >
                 <td>${addressBookData._phoneNumber}</td>
-               
-
                 <td>
-                    <img id="1" onclick="remove(this)" alt="delete" src="/Assets/Icons/delete-black-18dp.svg">
-                    <img id="1" alt="edit" onclick="update(this)" src="/Assets/Icons/create-black-18dp.svg">
+                    <img id="${addressBookData._id}" onclick="remove(this)" alt="delete" src="/Assets/Icons/delete-black-18dp.svg">
+                    <img id="${addressBookData._id}" alt="edit" onclick="update(this)" src="/Assets/Icons/create-black-18dp.svg">
                 </td>
             </tr>
         `;
     }
     document.querySelector('#display').innerHTML = innerHtml;
+}
+const remove = (node) => {
+    let addressBookData = addresBookList.find(bookData => bookData._id == node.id);
+    console.log(addressBookData)
+   if(!addressBookData) return;
+    const index = addresBookList 
+                    .map(addData => addData.id)
+                    .indexOf(addressBookData.id);
+                    addresBookList.splice(index, 1);
+    localStorage.setItem('AddressBookList', JSON.stringify(addresBookList));
+    createInnerHtml();
 }
