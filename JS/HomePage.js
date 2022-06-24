@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     addresBookList =   getAddressBookDataFromStorage();
     //document.querySelector(".emp-count").textContent = addresBookList.length;
     createInnerHtml();
+    localStorage.removeItem('editBook');
 });
 getAddressBookDataFromStorage= () => {
     return localStorage.getItem('AddressBookList') ? 
@@ -17,7 +18,6 @@ const createInnerHtml = () => {
     for (const addressBookData of addresBookList) {
         innerHtml = `${innerHtml}
             <tr>
-               
                 <td>${addressBookData._name}</td>
                 <td>${addressBookData._address}</td>
                 <td>${addressBookData._city}</td>
@@ -35,10 +35,9 @@ const createInnerHtml = () => {
 }
 const remove = (node) => {
     let addressBookData = addresBookList.find(bookData => bookData._id == node.id);
-    console.log(addressBookData)
    if(!addressBookData) return;
     const index = addresBookList 
-                    .map(addData => addData.id)
+                    .map(addData => addData._id)
                     .indexOf(addressBookData.id);
                     addresBookList.splice(index, 1);
     localStorage.setItem('AddressBookList', JSON.stringify(addresBookList));
