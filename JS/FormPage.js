@@ -1,7 +1,10 @@
+let isUpdate = false;
+let employPayrollObject = {};
 window.addEventListener('DOMContentLoaded', (event) => {
     NameVaidation();
     MobNoValidation();
     AddressValidation();
+    checkForUpdate();
 })
 //Validation Of Name
 function NameVaidation() {
@@ -107,6 +110,26 @@ function createAndUpdateStorage(addressBookData) {
     localStorage.setItem("AddressBookList", JSON.stringify(addressBookList))
 }
 
+const setAddressBookData = () => {
+    console.log(addressBookObj)
+    setValue('#name',addressBookObj._name);
+    setValue('#address',addressBookObj._address);
+    setValue('#city',addressBookObj._city);
+    setValue('#state',addressBookObj._state);
+    setValue('#phone',addressBookObj._phoneNumber);
+    setValue('#zipcode',addressBookObj._zipCode);
+    alert(addressBookData.toString());
+}
+
+const checkForUpdate =() => {
+    const addressBookJSON = localStorage.getItem('editBook');
+    isUpdate = addressBookJSON ? true : false;
+    if(!isUpdate) return;
+    addressBookObj = JSON.parse(addressBookJSON);
+    // console.log(addressBookJSON)
+    // console.log(addressBookObj);
+    setAddressBookData();
+}
 
 //reset method
 const resetForm = () => {
