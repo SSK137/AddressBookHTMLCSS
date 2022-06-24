@@ -17,13 +17,13 @@ class AddressBook{
         else
         throw "Name Is Incorrect!"
     }
-    get phoneNo() {
-        return this._phone;
+    get phoneNumber() {
+        return this._phoneNumber;
     }
-    set phoneNo(phone) {
+    set phoneNumber(phoneNumber) {
         let phonergx=RegExp('^[+]{0,1}[0-9]{2}\\s{0,1}[0-9]{10}$');
-        if(phonergx.test(phone))
-        this._phone=phone;
+        if(phonergx.test(phoneNumber))
+        this._phoneNumber=phoneNumber;
         else
             throw "Phonenumber Is Incorrect!"
     }
@@ -53,12 +53,12 @@ class AddressBook{
     get zipCode() {
         return this._zipCode;
     }
-    set zipCode(zipcode) {
-        this._zipCode = zipcode;
+    set zipCode(zipCode) {
+        this._zipCode = zipCode;
     }
     toString() {
-        return "ID="+this.id+", Name=" + this.name + ", Phone Number=" + this.phone +
+        return "ID="+this.id+", Name=" + this.name + ", Phone Number=" + this.phoneNumber +
             ", Address=" + this.address + ", City=" + this.city + ", State=" + this.state
-            + ", Zip Code=" + this.zipcode;
+            + ", Zip Code=" + this.zipCode;
     }
 }

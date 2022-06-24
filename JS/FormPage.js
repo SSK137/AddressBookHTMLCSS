@@ -50,31 +50,40 @@ function AddressValidation() {
 }
 //save method
 const save = (event) => {
-    alert("Save Button Fired");
     // const data = new FormData(event.target);
     // const formJSON = Object.fromEntries(data.entries());
     // alert(JSON.stringify(formJSON));
-    let addressBookData=createAddressBook();
-    alert(addressBookData.toString());
+    try {
+        let addressBookData = createAddressBook();
+        //alert(addressBookData.toString());
+        createAndUpdateStorage(addressBookData);
+        alert("Added Successfully");
+    }
+    catch (e) {
+        return;
+    }
+
 }
 
+//creating Id automatically and storing into the Local storage
 const createNewId = () => {
-    let addressBookId = localStorage.getItem('addressBookID');
+    let addressBookId = localStorage.getItem('AddressBookID');
     addressBookId = !addressBookId ? 1 : (parseInt(addressBookId) + 1);
-    localStorage.setItem('addressBookID', addressBookId);
+    localStorage.setItem('AddressBookID', addressBookId);
     return addressBookId;
 }
 
-const createAddressBook=()=>{
-   let addressBook=new AddressBook();
-    addressBook.id=createNewId();
+//getting all tyhe data from form and storing in addressBook object
+const createAddressBook = () => {
+    let addressBook = new AddressBook();
+    addressBook.id = createNewId();
     try {
         addressBook.name = getInputValueById('#name');
     } catch (e) {
         setTextValue('.text-error', e);
         throw e;
     }
-    addressBook.phone = getInputValueById('#phone');
+    addressBook.phoneNumber = getInputValueById('#phone');
     addressBook.address = getInputValueById('#address');
     addressBook.city = getInputValueById('#city');
     addressBook.state = getInputValueById('#state');
@@ -86,6 +95,18 @@ const getInputValueById = (id) => {
     let value = document.querySelector(id).value;
     return value;
 }
+//Storing data locally
+function createAndUpdateStorage(addressBookData) {
+    let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
+    if (addressBookList != undefined) {
+        addressBookList.push(addressBookData);
+    } else {
+        addressBookList = [addressBookData]
+    }
+    alert(addressBookList.toString());
+    localStorage.setItem("AddressBookList", JSON.stringify(addressBookList))
+}
+
 
 //reset method
 const resetForm = () => {
